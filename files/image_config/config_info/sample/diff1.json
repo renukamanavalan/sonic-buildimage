@@ -1,0 +1,129 @@
+{
+    "AAA": {
+        "authentication": {
+            "login": "tacacs+"
+        }
+    },
+    "SYSLOG_SERVER": {
+        "10.20.6.16": {}
+    },
+    "ACL_RULE": {
+        "EVERFLOWSTATIC|DEFAULT_RULE": {
+            "PRIORITY": "1",
+            "PACKET_ACTION": "DROP",
+            "ETHER_TYPE": "2048"
+        },
+        "EVERFLOWSTATIC|RULE_1": {
+            "PRIORITY": "9999",
+            "PACKET_ACTION": "ACCEPT"
+        },
+        "EVERFLOWSTATIC|RULE_2": {
+            "PRIORITY": "9998",
+            "PACKET_ACTION": "ACCEPT"
+        }
+    },
+    "BUFFER_PG": {
+        "Ethernet0|0": {
+            "profile": "[BUFFER_PROFILE|ingress_lossy_profile]"
+        },
+        "Ethernet0|3-4": {
+            "profile": "[BUFFER_PROFILE|pg_lossless_100000_300m_profile]"
+        },
+        "Ethernet4|0": {
+            "profile": "[BUFFER_PROFILE|ingress_lossy_profile]"
+        },
+        "Ethernet4|3-4": {
+            "profile": "[BUFFER_PROFILE|pg_lossless_100000_300m_profile]"
+        }
+    },
+    "DEVICE_METADATA": {
+        "localhost": {
+            "hwsku": "Arista-7060CX-32S-C32",
+            "default_bgp_status": "down",
+            "type": "LeafRouter"
+        }
+    },
+    "DEVICE_NEIGHBOR_METADATA": {
+        "BLZ23-0101-0100-09T2": {
+            "lo_addr": "25.99.110.8/32",
+            "mgmt_addr": "25.99.120.67/26",
+            "hwsku": "Arista-7508N-SpineRouter",
+            "type": "SpineRouter",
+            "deployment_id": "3"
+        },
+        "BLZ23-0101-0100-10T2": {
+            "lo_addr": "25.99.110.9/32",
+            "mgmt_addr": "25.99.120.68/26",
+            "hwsku": "Arista-7508N-SpineRouter",
+            "type": "SpineRouter",
+            "deployment_id": "3"
+        }
+    },
+    "PORTCHANNEL_MEMBER": {
+        "PortChannel1|Ethernet24": {},
+        "PortChannel2|Ethernet28": {},
+        "PortChannel3|Ethernet32": {},
+        "PortChannel4|Ethernet36": {},
+        "PortChannel5|Ethernet88": {}
+    },
+    "PORT": {
+        "Ethernet0": {
+            "index": "1",
+            "lanes": "33,34,35,36",
+            "description": "BLZ23-0101-0207-01T0:Ethernet58/1",
+            "pfc_asym": "off",
+            "mtu": "9100",
+            "alias": "Ethernet1/1",
+            "admin_status": "up",
+            "speed": "100000",
+            "fec": "rs"
+        },
+        "Ethernet4": {
+            "index": "2",
+            "lanes": "37,38,39,40",
+            "description": "BLZ23-0101-0207-02T0:Ethernet58/1",
+            "pfc_asym": "off",
+            "mtu": "9100",
+            "alias": "Ethernet2/1",
+            "admin_status": "up",
+            "speed": "100000",
+            "fec": "rs"
+        }
+
+    },
+    "PORTCHANNEL_INTERFACE": {
+        "PortChannel1|10.106.32.7/31": {},
+        "PortChannel1|2603:10b0:31f:8::12/126": {},
+        "PortChannel2|10.106.36.7/31": {},
+        "PortChannel2|2603:10b0:31f:9::12/126": {},
+        "PortChannel3|10.106.40.7/31": {},
+        "PortChannel3|2603:10b0:31f:a::12/126": {}
+    },
+    "PORTCHANNEL": {
+        "PortChannel1": {
+            "admin_status": "up",
+            "min_links": "1",
+            "members": [
+                "Ethernet24"
+            ],
+            "mtu": "9100"
+        },
+        "PortChannel2": {
+            "admin_status": "up",
+            "min_links": "1",
+            "members": [
+                "Ethernet28"
+            ],
+            "mtu": "9100"
+        },
+        "PortChannel3": {
+            "admin_status": "up",
+            "min_links": "1",
+            "members": [
+                "Ethernet32"
+            ],
+            "mtu": "9100"
+        }
+    }
+}
+

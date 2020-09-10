@@ -1,0 +1,22 @@
+order.py -c ./config.json -j sample/diff1.json
+
+
+The config is defined as:
+
+The main granular element is "Table".
+
+The tables are to be ordered based on semantic dependencies. Not all have dependencies. To help with ordering, the tables are divided into groups, the groups are ordered as which precedes, and within each group the tables are indexed.
+
+The tables of groups with lower numbers precedes in the order and similarly, within a group, the tables with lower index precedes. Mutiple tables within a group may share same index, if no ordering is required among them.
+
+
+Eah table is marked with services that need to be restarted to absorb the updates.
+Each service is marked with
+    a) Can it support warm-reboot ?
+    b) Could it disrupt data-plane ?
+    c) The services that get restarted if this service restart
+
+The order.py, converts the given JSON diff into a ordered diff based on group & intra-group indices. 
+It also collects the services to restart and ensure, that all auto-restarted services are removed.
+
+The o/p is a configlet ready for applying in the right order and list of services to restart with info on supports warm-reboot or not and affects data-plane or not.
